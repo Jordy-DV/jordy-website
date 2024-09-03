@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <title>Jordy's spellen</title>
+    <link rel="icon" href="images/video-game.png">
+    <link href="css/header.css" rel="stylesheet">
+    <link href="css/steenpapierschaar.css" rel="stylesheet">
+    <link href="css/general.css" rel="stylesheet">
+    <link href="css/sidebar.css" rel="stylesheet">
+    <link href="css/footer.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Dit is de header aan de bovenkant -->
+    <header>
+      <nav>
+        <div class="homeDiv">
+          <a href="spellen.html"><button class="homeButton">Home</button></a>
+        </div>
+        <input type="text" class="searchInput" placeholder="Zoek">
+        <div class="aboutContainer">
+          <button class="aboutButton">Waarom</button>
+          <button class="aboutButton">Wie</button>
+          <button class="aboutButton">Hoe</button>
+        </div>
+        <h1 class="headerTitle">Jordy's spellen</h1>
+      </nav>
+    </header>
+
+    <!-- Dit is de sidebar aan de linkerkant -->
+    <aside>
+      <a class="spelSide" href="steenpapierschaar.html"><div>Steen, papier, schaar</div></a>
+      <a class="spelSide" href="boterkaaseieren.html"><div>Boter, kaas, en eieren</div></a>
+      <a class="spelSide" href="vieropeenrij.html"><div>Vier op een rij</div></a>
+      <a class="spelSide" href="https://www.google.com"><div>Hallo</div></a>
+    </aside>
+
+    <!-- Dit is de main content van pagina -->
+    <main>
+      <div class="mainContent">
+        <div class="beschrijving">
+          <h2 class="spelInstructie">Hoe werkt het?</h2>
+          <h4 class="subTitle">Stap 1: Maak je keuze</h4>
+          <p class="instructieTekst">Kies &#233;&#233;n van van de volgende opties:</p>
+          <ul>
+            <li>Steen</li>
+            <li>Papier</li>
+            <li>Schaar</li>
+          </ul>
+          <p class="instructieTekst">Je kunt je keuze maken door op &#233;&#233;n van de afbeeldingen te klikken.</p>
+          <h4 class="subTitle">Stap 2: De computer maakt een keuze</h4>
+          <p class="instructieTekst">De computer kiest automatisch een van de drie opties: steen, papier, of schaar. Deze keuze wordt willekeurig gegenereerd.</p>
+          <h4 class="subTitle">Stap 3: Vergelijk de keuzes</h4>
+          <p class="instructieTekst">Het spel vergelijkt jouw keuze met die van de computer:</p>
+          <ul>
+            <li>Steen wint van schaar, maar verliest van papier</li>
+            <li>Papier wint van steen, maar verliest van schaar</li>
+            <li>Schaar wint van papier, maar verliest van steen</li>
+            <li>Als beide dezelfde keuze maken is het een gelijkspel</li>
+          </ul>
+          <h4 class="subTitle">Stap 4: Bekijk het resultaat</h4>
+          <p class="instructieTekst">Het spel zal aangeven wie de winnaar is op basis van de keuzes die jij en de computer hebben gemaakt. Je krijgt een bericht te zien met het resultaat.</p>
+          <h4 class="subTitle">Stap 5: Speel opnieuw of sluit af</h4>
+          <p class="instructieTekst">Kies of je nog een keer wilt spelen, of sluit het spel af. De resultaten zullen worden bijgehouden!</p>
+          <p>Veel speelplezier!</p>
+        </div>
+        <div class="spel">
+          <h1 class="mainTitle">Steen, papier, schaar</h1>
+          <div>
+            <h2 class="spelInstructie">Kies een optie</h2>
+            <div class="imageDiv">
+              <a href="javascript:void(0)" onclick="steenpapierschaar('steen')" class="imageLink"><span class="keuzeCounter" id="aantalSteen">0</span><img class="image" src="images/rock.png"></a>
+              <a href="javascript:void(0)" onclick="steenpapierschaar('papier')" class="imageLink"><span class="keuzeCounter" id="aantalPapier">0</span><img class="image" src="images/paper.png"></a>
+              <a href="javascript:void(0)" onclick="steenpapierschaar('schaar')" class="imageLink"><span class="keuzeCounter" id="aantalSchaar">0</span><img class="image" src="images/scissors.png"></a>
+            </div>
+            <div class="resultaten">
+              <button class="resetKnop" onclick="resetStatistieken()">Reset</button>
+              <h2 class="laatsteResultaat" id="laatsteResultaat">Laatste resultaat:</h2>
+              <div class="statistieken">
+                <h3 id="aantalGewonnen">test</h3>
+                <h3 id="aantalGelijk">test</h3>
+                <h3 id="aantalVerloren">test</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Dit is een popup voor het resultaat-->
+     <div class="popup" id="popup">
+      <div class="popupContent">
+        <p class="popupComputerKeuze" id="popupComputerKeuze">De computer heeft dit gekozen.</p> 
+        <p class="popupResultaat" id="popupResultaat">Gefeliciteerd, je hebt gewonnen!</p>
+        <div><a class="popupSluitenLink" id="popupSluiten" href="javascript:void(0)" onclick="showPopup()"><img class="popupSluiten" src="images/close.png"></a></div>
+      </div>
+     </div>
+    
+    <!-- Dit is de footer onderaan de pagina -->
+    <footer>
+      <h3 class="footerTekst">Bedankt voor het bezoeken! Klik <a href="https://www.google.com">hier</a> voor meer informatie.</h3>
+    </footer>
+
+    <script>
+
+      const popup = document.getElementById("popup"); 
+
+      let statistieken = JSON.parse(localStorage.getItem('statistieken')) || {
+        gewonnen: 0,
+        verloren: 0,
+        gelijk: 0,
+        resultaat: 'Nog niet gespeeld'
+      }
+
+      window.onclick = function(event) {
+        if (event.target == popup) {
+          showPopup();
+        }
+      }
+
+      function resetStatistieken() {
+        localStorage.removeItem('statistieken');
+        statistieken = {
+          gewonnen: 0,
+          verloren: 0,
+          gelijk: 0,
+          resultaat: 'Nog niet gespeeld',
+          steen: 0,
+          papier: 0,
+          schaar: 0
+        }
+        changeStatistieken(statistieken);
+      }
+
+      function changeStatistieken(resultaten) {
+        document.getElementById("laatsteResultaat").innerHTML = `Laatste resultaat: ${resultaten.resultaat}`
+        document.getElementById("aantalGewonnen").innerHTML = `Aantal gewonnen: ${resultaten.gewonnen}`
+        document.getElementById("aantalGelijk").innerHTML = `Aantal gelijk: ${resultaten.gelijk}`
+        document.getElementById("aantalVerloren").innerHTML = `Aantal verloren: ${resultaten.verloren}`
+        document.getElementById("aantalSteen").innerHTML = `${resultaten.steen}`
+        document.getElementById("aantalPapier").innerHTML = `${resultaten.papier}`
+        document.getElementById("aantalSchaar").innerHTML = `${resultaten.schaar}`
+      }
+
+      function showPopup(result, computerkeuze) {
+        if (popup.style.display == "flex") {
+          popup.style.display = "none";
+        } else {
+          popup.style.display = "flex";
+          document.getElementById("popupSluiten").focus();
+        }
+
+        if (result && computerkeuze) {
+          console.log(computerkeuze)
+          document.getElementById("popupComputerKeuze").innerHTML = `De computer heeft ${computerkeuze} gekozen`
+          if (result === 'verloren') {
+            document.getElementById("popupResultaat").innerHTML = `Jammer, je hebt verloren...`
+          } else if (result === 'gelijk') {
+            document.getElementById("popupResultaat").innerHTML = `Het is een gelijkspel!`
+          } else if (result === 'gewonnen') {
+            document.getElementById("popupResultaat").innerHTML = `Gefeliciteerd, je hebt gewonnen!`
+          } else {
+            console.log("Er ging iets fout")
+          }
+        }
+      }
+
+      function steenpapierschaar(keuze) {
+        const computergetal = Math.random()
+        let computerkeuze = ''
+        
+        if (computergetal > 0 && computergetal < 1/3) {
+          computerkeuze = 'steen';
+        } else if (computergetal >= 1/3 && computergetal < 2/3) {
+          computerkeuze = 'papier';
+        } else {
+          computerkeuze = 'schaar';
+        }
+
+        if (keuze === 'steen') {
+          statistieken.steen++
+          if (computerkeuze === 'papier') {
+            console.log('Verloren');
+            statistieken.resultaat = 'verloren'
+            statistieken.verloren++;
+          } else if (computerkeuze === 'steen') {
+            console.log('Gelijkspel');
+            statistieken.resultaat = 'gelijk'
+            statistieken.gelijk++;
+          } else {
+            console.log('Gewonnen');
+            statistieken.resultaat = 'gewonnen'
+            statistieken.gewonnen++;
+          }
+
+        } else if (keuze === 'papier') {
+          statistieken.papier++
+          if (computerkeuze === 'schaar') {
+            console.log('Verloren');
+            statistieken.resultaat = 'verloren'
+            statistieken.verloren++;
+          } else if (computerkeuze === 'papier') {
+            console.log('Gelijkspel');
+            statistieken.resultaat = 'gelijk'
+            statistieken.gelijk++;
+          } else {
+            console.log('Gewonnen');
+            statistieken.resultaat = 'gewonnen'
+            statistieken.gewonnen++;
+          }
+
+        } else if (keuze === 'schaar') {
+          statistieken.schaar++
+          if (computerkeuze === 'steen') {
+            console.log('Verloren');
+            statistieken.resultaat = 'verloren'
+            statistieken.verloren++;
+          } else if (computerkeuze === 'schaar') {
+            console.log('Gelijkspel');
+            statistieken.resultaat = 'gelijk'
+            statistieken.gelijk++;
+          } else {
+            console.log('Gewonnen');
+            statistieken.resultaat = 'gewonnen'
+            statistieken.gewonnen++;
+          }
+
+        } else {
+          console.log('Er ging iets fout');
+        }
+
+        console.log(statistieken)
+        localStorage.setItem('statistieken', JSON.stringify(statistieken));
+        changeStatistieken(statistieken);
+        showPopup(statistieken.resultaat, computerkeuze);
+      }
+
+      changeStatistieken(statistieken);
+    </script>
+  </body>
+</html>
