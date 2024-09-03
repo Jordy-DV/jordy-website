@@ -1,0 +1,58 @@
+.aboutButton {
+  margin: 0px 50px;
+  border-radius: 10px;
+  min-width: 100px;
+  box-shadow: 1px 1px 5px black;
+}
+
+.aboutContainer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.headerTitle {
+  color: #F5F5F5;
+  margin-right: 50px;
+}
+
+nav button {
+  background-color: #48CFCB;
+  border: none;
+  font-size: 30px;
+  color: #F5F5F5;
+  font-weight: bold;
+  padding: 10px;
+  transition: background-color 0.25s;
+}
+
+nav button:hover {
+  background-color: #229799;
+  cursor: pointer;
+}
+
+.homeButton {
+  width: 250px;
+  font-size: 50px;
+  height: 100px;
+}
+
+.homeDiv {
+  border-right: #F5F5F5 20px solid;
+}
+
+.searchInput {
+  background-color: #F5F5F5;
+  border-radius: 2px;
+  height: 50px;
+  font-size: 25px;
+  padding: 0px 10px;
+  box-shadow: inset 0px 0px 5px;
+  border: none;
+  flex: 1;
+  max-width: 900px;
+  margin: 0px 50px;
+}
+
+.searchInput:focus-visible {
+  outline: #229799 solid 2px;
+}

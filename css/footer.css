@@ -1,0 +1,20 @@
+.footerTekst {
+  color: #F5F5F5;
+  font-weight: normal;
+}
+
+.footerTekst a {
+  color: #48CFCB;
+  transition: color 0.25s;
+}
+
+.footerTekst a:hover {
+  color: #229799;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.footerTekst a:focus-visible {
+  color: #229799;
+  font-weight: bold;
+}
