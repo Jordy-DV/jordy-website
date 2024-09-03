@@ -7,6 +7,7 @@ a {
 }
 
 aside {
+  z-index: 100;
   position: fixed;
   left: 0;
   top: 100px;
@@ -25,6 +26,7 @@ body {
 }
 
 footer {
+  z-index: 100;
   position: fixed; 
   bottom: 0;
   left: 0;
@@ -41,6 +43,7 @@ h1 {
 }
 
 header {
+  z-index: 100;
   position: fixed;
   left: 0;
   right: 0;
@@ -50,7 +53,7 @@ header {
 }
 
 main {
-  padding: 100px 0px 50px 250px;
+  padding: 100px 50px 50px 250px;
 }
 
 nav {

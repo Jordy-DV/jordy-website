@@ -1,13 +1,14 @@
 .aboutButton {
-  margin: 0px 50px;
   border-radius: 10px;
   min-width: 100px;
   box-shadow: 1px 1px 5px black;
+  margin: 0px 10px;
 }
 
 .aboutContainer {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  flex: 1;
 }
 
 .headerTitle {
@@ -48,9 +49,24 @@ nav button:hover {
   padding: 0px 10px;
   box-shadow: inset 0px 0px 5px;
   border: none;
-  flex: 1;
   max-width: 900px;
   margin: 0px 50px;
+  flex: 1;
+  min-width: 0px;
+}
+
+@media screen and (max-width: 1050px) {
+  .searchInput,
+  .aboutContainer {
+    display: none;
+  }
+
+  .headerTitle {
+    flex: 1;
+    font-size: 30px;
+    text-align: center;
+    margin-right: 0px;
+  }
 }
 
 .searchInput:focus-visible {

@@ -22,6 +22,7 @@ a:focus-visible .image {
 .imageDiv {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .imageLink {
